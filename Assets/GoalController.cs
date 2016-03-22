@@ -4,6 +4,7 @@ using System.Collections;
 public class GoalController : MonoBehaviour 
 {
 	public GameObject gameController;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -22,6 +23,5 @@ public class GoalController : MonoBehaviour
 		{
 			gameController.GetComponent<GameController>().Victory();
 		}
-		Debug.Log("hit");
 	}
 }

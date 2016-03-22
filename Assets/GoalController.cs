@@ -12,6 +12,7 @@ public class GoalController : MonoBehaviour
 		{
 			// tell the gamecontroller its a win
 			gameController.GetComponent<GameController>().Victory();
+			Destroy(other.gameObject);
 
 		}
 	}

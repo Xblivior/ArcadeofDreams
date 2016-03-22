@@ -3,9 +3,13 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour 
 {
-	public float speed;
+	// throwing variables
 	public GameObject thrown;
 	public Transform throwSpawn;
+
+	//Variables for player movement
+	public float speed;
+	public float xMin, xMax, yMin, yMax;
 
 	// Use this for initialization
 	void Start () 
@@ -16,9 +20,37 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		//get input from keyboard
+		float hInput;
+		hInput = Input.GetAxis("Horizontal");
+		float vInput;
+		vInput = Input.GetAxis("Vertical");
+
+		//turn that input into directional vector
+		Vector3 moveDirection;
+		moveDirection = new Vector3(hInput, 0, vInput);
+		moveDirection = moveDirection * speed * Time.deltaTime;
+
+		//move transform by that vector
+		transform.Translate(moveDirection);
+
+		//Get map boundary
+		GetComponent<Rigidbody>().position = new Vector3
+			( 
+				Mathf.Clamp (GetComponent<Rigidbody>().position.x, xMin, xMax),
+				Mathf.Clamp (GetComponent<Rigidbody>().position.y, yMin, yMax),
+				0.0f
+			);
+		
 		if (Input.GetKey(KeyCode.Space))
 		{
 			Instantiate(thrown, thrown.transform.position, thrown.transform.rotation);
 		}
+	}
+
+	void FixedUpdate()
+	{
+		
+
 	}
 }

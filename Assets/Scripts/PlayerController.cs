@@ -41,16 +41,13 @@ public class PlayerController : MonoBehaviour
 				Mathf.Clamp (GetComponent<Rigidbody>().position.y, yMin, yMax),
 				0.0f
 			);
-		
-		if (Input.GetKey(KeyCode.Space))
+
+		//shoot the thing
+		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			Instantiate(thrown, thrown.transform.position, thrown.transform.rotation);
+			Instantiate(thrown, throwSpawn.transform.position, throwSpawn.transform.rotation);
 		}
 	}
 
-	void FixedUpdate()
-	{
-		
 
-	}
 }

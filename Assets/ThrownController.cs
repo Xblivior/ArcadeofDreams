@@ -16,6 +16,5 @@ public class ThrownController : MonoBehaviour
 	{
 		transform.Translate(transform.up * speed * Time.deltaTime);
 	}
-
-
+		
 }

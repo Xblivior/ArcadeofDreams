@@ -37,10 +37,7 @@ public class PlayerControllerO : MonoBehaviour
 			{
 				arcade = hit.transform.gameObject;
 			}
-			else
-			{
-				arcade = null;
-			}
+
 		}
 
 	}

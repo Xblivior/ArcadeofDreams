@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerControllerO : MonoBehaviour 
 {
-	GameObject arcade;
+	public GameObject arcade;
 
 	// Use this for initialization
 	void Start () 
@@ -35,8 +35,13 @@ public class PlayerControllerO : MonoBehaviour
 			//if it hits an aracde machine
 			if (hit.transform.tag == "Arcade")
 			{
-				arcade = this.gameObject;
+				arcade = hit.transform.gameObject;
+			}
+			else
+			{
+				arcade = null;
 			}
 		}
+
 	}
 }

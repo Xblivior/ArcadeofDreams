@@ -17,12 +17,4 @@ public class projectileMovement : MonoBehaviour
 		//Give projectile movement to move in a downward direction.
 		projectile.velocity = transform.up * -moveSpeed;
 	}
-
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject) 
-		{
-			Destroy (this.gameObject);
-		}
-	}
 }

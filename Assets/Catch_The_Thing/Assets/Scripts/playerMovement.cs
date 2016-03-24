@@ -3,8 +3,9 @@ using System.Collections;
 
 public class playerMovement : MonoBehaviour 
 {
-	private float moveSpeed = 5f;
+	private float moveSpeed = 6f;
 	public Rigidbody2D playerChar;
+	//public GameObject gameController;
 
 	void Start () 
 	{
@@ -25,5 +26,14 @@ public class playerMovement : MonoBehaviour
 
 		if (Input.GetKeyUp(KeyCode.D))
 			GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject) 
+		{
+			//gameController.GetComponent<CTTGameController>().Victory();
+			Destroy (other.gameObject);
+		}
 	}
 }

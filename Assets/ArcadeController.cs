@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ArcadeController : MonoBehaviour 
 {
-	public string nextLevel;
+	public string[] nextLevel;
 	// Use this for initialization
 	void Start () 
 	{
@@ -19,6 +19,6 @@ public class ArcadeController : MonoBehaviour
 
 	public void NextLevel()
 	{
-		SceneManager.LoadScene (nextLevel);
+		SceneManager.LoadScene (nextLevel[Random.Range (0, 1)]);
 	}
 }

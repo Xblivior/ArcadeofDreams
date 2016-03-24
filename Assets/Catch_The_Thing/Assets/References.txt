@@ -1,0 +1,3 @@
+Grass - http://opengameart.org/content/seamless-grass-texture-ii
+Player - http://opengameart.org/content/businessman
+AI - http://opengameart.org/content/mark-2d-adventure-game-sprite

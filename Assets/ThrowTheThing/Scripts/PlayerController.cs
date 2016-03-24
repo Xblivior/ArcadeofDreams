@@ -23,23 +23,20 @@ public class PlayerController : MonoBehaviour
 		//get input from keyboard
 		float hInput;
 		hInput = Input.GetAxis("Horizontal");
-		float vInput;
-		vInput = Input.GetAxis("Vertical");
 
 		//turn that input into directional vector
 		Vector3 moveDirection;
-		moveDirection = new Vector3(hInput, 0, vInput);
+		moveDirection = new Vector3(hInput, 0, 0);
 		moveDirection = moveDirection * speed * Time.deltaTime;
 
 		//move transform by that vector
 		transform.Translate(moveDirection);
 
 		//Get map boundary
-		GetComponent<Rigidbody>().position = new Vector3
+		GetComponent<Rigidbody2D>().position = new Vector2
 			( 
-				Mathf.Clamp (GetComponent<Rigidbody>().position.x, xMin, xMax),
-				Mathf.Clamp (GetComponent<Rigidbody>().position.y, yMin, yMax),
-				0.0f
+				Mathf.Clamp (GetComponent<Rigidbody2D>().position.x, xMin, xMax),
+				Mathf.Clamp (GetComponent<Rigidbody2D>().position.y, yMin, yMax)
 			);
 
 		//shoot the thing

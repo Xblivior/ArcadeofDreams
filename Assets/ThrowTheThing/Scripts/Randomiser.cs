@@ -4,8 +4,8 @@ using System.Collections;
 public class Randomiser : MonoBehaviour 
 {
 	//Material Arrays
-	public Material[] goalMat;
-	public Material[] playerMat; 
+	public Sprite[] goalMat;
+	public Sprite[] playerMat; 
 
 	//Playter and Gaol GameObjects
 	public GameObject goal;
@@ -34,10 +34,10 @@ public class Randomiser : MonoBehaviour
 		player.transform.position = new Vector3(Random.Range(xMinP, xMaxP), yPosP, 0f);
 
 		//get random material
-		Material randomMatP = playerMat[Random.Range(0, playerMat.Length)]; 
+		Sprite randomMatP = playerMat[Random.Range(0, playerMat.Length)]; 
 
 		// apply random material
-		player.GetComponent<Renderer>().material = randomMatP;
+		player.GetComponent<SpriteRenderer>().sprite = randomMatP;
 	}
 
 	void RandomGoal()
@@ -46,10 +46,10 @@ public class Randomiser : MonoBehaviour
 		goal.transform.position = new Vector3(Random.Range(xMinG, xMaxG), yPosG, 0f);
 
 		//get random material
-		Material randomMatG = goalMat[Random.Range(0, goalMat.Length)]; 
+		Sprite randomMatG = goalMat[Random.Range(0, goalMat.Length)]; 
 
 		// apply random material
-		goal.GetComponent<Renderer>().material = randomMatG;
+		goal.GetComponent<SpriteRenderer>().sprite = randomMatG;
 	}
 
 

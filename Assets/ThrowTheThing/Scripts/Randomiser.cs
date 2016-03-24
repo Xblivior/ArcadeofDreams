@@ -34,7 +34,7 @@ public class Randomiser : MonoBehaviour
 		player.transform.position = new Vector3(Random.Range(xMinP, xMaxP), yPosP, 0f);
 
 		//get random material
-		Material randomMatP = playerMat[Random.Range(0, 4)]; 
+		Material randomMatP = playerMat[Random.Range(0, playerMat.Length)]; 
 
 		// apply random material
 		player.GetComponent<Renderer>().material = randomMatP;
@@ -46,7 +46,7 @@ public class Randomiser : MonoBehaviour
 		goal.transform.position = new Vector3(Random.Range(xMinG, xMaxG), yPosG, 0f);
 
 		//get random material
-		Material randomMatG = playerMat[Random.Range(0, 4)]; 
+		Material randomMatG = goalMat[Random.Range(0, goalMat.Length)]; 
 
 		// apply random material
 		goal.GetComponent<Renderer>().material = randomMatG;
@@ -54,3 +54,6 @@ public class Randomiser : MonoBehaviour
 
 
 }
+
+
+//Xblivior

@@ -5,7 +5,7 @@ public class playerMovement : MonoBehaviour
 {
 	private float moveSpeed = 6f;
 	public Rigidbody2D playerChar;
-	//public GameObject gameController;
+	public GameObject gameController;
 
 	void Start () 
 	{
@@ -30,9 +30,9 @@ public class playerMovement : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject) 
+		if (other.gameObject.tag == "CTTProjectile") 
 		{
-			//gameController.GetComponent<CTTGameController>().Victory();
+		//	gameController.GetComponent<CTTGameController>().Victory();
 			Destroy (other.gameObject);
 		}
 	}

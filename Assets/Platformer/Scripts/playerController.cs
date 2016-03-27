@@ -22,29 +22,30 @@ public class playerController : MonoBehaviour
 	void Update () 
 	{
 		CheckJump();
-		if (Input.GetKey(KeyCode.A))
-			playerChar.velocity = transform.right * -moveSpeed;
 
-		if (Input.GetKeyUp(KeyCode.A))
-			GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-
-		if (Input.GetKey(KeyCode.D))
-			playerChar.velocity = transform.right * moveSpeed;
-
-		if (Input.GetKeyUp(KeyCode.D))
-			GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-
-		if (canJump = true && Input.GetKey (KeyCode.Space))
+		if (canJump = true && Input.GetKeyDown (KeyCode.Space))
 		{
-			playerChar.AddForce (new Vector2(0, 1), ForceMode2D.Impulse);
+			playerChar.AddForce (new Vector2(0, 6), ForceMode2D.Impulse);
 			canJump = false;
 		}
 	}
 
+	void FixedUpdate()
+	{
+		if (Input.GetKey(KeyCode.A))
+		{
+			playerChar.AddForce (Vector3.right * moveSpeed);
+		}
+			
+		if (Input.GetKey(KeyCode.D))
+		{
+			playerChar.AddForce (Vector2.right * moveSpeed);
+		}
+	}
 	void CheckJump()
 	{
 		RaycastHit hit;
-		if (Physics.Raycast(transform.position, -transform.up, out hit, 0.5f))
+		if (Physics.Raycast(transform.position, -transform.up, out hit, 1))
 			{
 			Debug.DrawRay(transform.position, -transform.up, Color.red);
 			if (hit.transform.tag == "PlatformerGround")

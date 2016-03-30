@@ -19,6 +19,6 @@ public class ArcadeController : MonoBehaviour
 
 	public void NextLevel()
 	{
-		SceneManager.LoadScene (nextLevel[Random.Range (0, 1)]);
+		SceneManager.LoadScene (nextLevel[Random.Range (0, nextLevel.Length)]);
 	}
 }

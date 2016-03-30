@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class GameController : MonoBehaviour 
@@ -48,7 +49,10 @@ public class GameController : MonoBehaviour
 	{
 		//victory = true;
 		victoryText.enabled = true;
-		Time.timeScale = 0.05f;
+		//Time.timeScale = 0.05f;
+
+		//load Overworld
+		SceneManager.LoadScene ("Overworld");
 	}
 
 	public void FailGame()
@@ -61,4 +65,6 @@ public class GameController : MonoBehaviour
 
 
 }
+
+//Xblivior
 

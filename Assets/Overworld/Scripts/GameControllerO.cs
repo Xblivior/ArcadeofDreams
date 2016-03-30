@@ -46,7 +46,7 @@ public class GameControllerO : MonoBehaviour
 
 		}
 
-		Invoke("SpawnArcades",0.05f);
+		Invoke("SpawnArcades",5f);
 		
 	}
 }

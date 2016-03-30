@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerControllerO : MonoBehaviour 
@@ -6,10 +7,12 @@ public class PlayerControllerO : MonoBehaviour
 	public GameObject arcade;
 	public GameObject ground;
 
+	public Text startTex;
+
 	// Use this for initialization
 	void Start () 
 	{
-		
+		startTex.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -46,7 +49,21 @@ public class PlayerControllerO : MonoBehaviour
 			{
 				//make arcade = to that arcade
 				arcade = hit.transform.gameObject;
+
+				//and show Start Text
+				startTex.enabled = true;
 			}
+
+		}
+
+		//else if it hits nothing
+		else 
+		{
+			//make arcade empty
+			arcade = null;
+
+			//and show no text
+			startTex.enabled = false;
 
 		}
 

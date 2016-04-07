@@ -41,15 +41,17 @@ public class ArcadeController : MonoBehaviour
 	void Win()
 	{
 		
-		gameController.GetComponent<GameControllerO>().Happiness(1);
+		gameController.GetComponent<GameControllerO>().Happiness(5);
 		//gameController.GetComponent<GameControllerO>().s
+		Destroy(this.gameObject);
 
 	}
 
 	void Lose()
 	{
 		
-		gameController.GetComponent<GameControllerO>().Sadness(1);
+		gameController.GetComponent<GameControllerO>().Sadness(5);
+		Destroy(this.gameObject);
 
 	}
 		

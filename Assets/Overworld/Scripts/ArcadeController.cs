@@ -5,21 +5,52 @@ using System.Collections;
 public class ArcadeController : MonoBehaviour 
 {
 	public string[] nextLevel;
+	public GameObject gameController;
+
 	// Use this for initialization
 	void Start () 
 	{
-		
+		gameController = GameObject.FindGameObjectWithTag("GameController");
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-	
+		
 	}
 
 	public void NextLevel()
 	{
 		SceneManager.LoadScene (nextLevel[Random.Range (0, nextLevel.Length)]);
+	}
+
+	public void WinOrLose()
+	{
+		float randomNum = Random.Range (1f, 10f);
+
+		if (randomNum <= 5f)
+		{
+			Win();
+		}
+		else if (randomNum > 5f)
+		{
+			Lose();
+		}
+	}
+
+	void Win()
+	{
+		
+		gameController.GetComponent<GameControllerO>().Happiness(1);
+		//gameController.GetComponent<GameControllerO>().s
+
+	}
+
+	void Lose()
+	{
+		
+		gameController.GetComponent<GameControllerO>().Sadness(1);
+
 	}
 		
 }

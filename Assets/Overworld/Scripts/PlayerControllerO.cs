@@ -31,7 +31,8 @@ public class PlayerControllerO : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.F))
 			{
 				//load the next level
-				arcade.GetComponent<ArcadeController>().NextLevel(); 
+				//arcade.GetComponent<ArcadeController>().NextLevel(); 
+				arcade.GetComponent<ArcadeController>().WinOrLose();
 			}
 		}
 	}

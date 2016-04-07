@@ -22,6 +22,7 @@ public class playerController : MonoBehaviour
 	void Update () 
 	{
 		CheckJump();
+
 		if (Input.GetKey(KeyCode.A))
 			playerChar.velocity = transform.right * -moveSpeed;
 

@@ -8,7 +8,7 @@ public class ArcadeController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-	
+		
 	}
 	
 	// Update is called once per frame
@@ -19,6 +19,7 @@ public class ArcadeController : MonoBehaviour
 
 	public void NextLevel()
 	{
-		SceneManager.LoadScene (nextLevel[Random.Range (0, 1)]);
+		SceneManager.LoadScene (nextLevel[Random.Range (0, nextLevel.Length)]);
 	}
+		
 }

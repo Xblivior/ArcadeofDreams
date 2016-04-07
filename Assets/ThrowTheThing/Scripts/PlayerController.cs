@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 	public float speed;
 	public float xMin, xMax, yMin, yMax;
 
+	float timer = 5f;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -20,6 +22,9 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		//make a timer
+		timer -= Time.deltaTime;
+
 		//get input from keyboard
 		float hInput;
 		hInput = Input.GetAxis("Horizontal");
@@ -39,12 +44,25 @@ public class PlayerController : MonoBehaviour
 				Mathf.Clamp (GetComponent<Rigidbody2D>().position.y, yMin, yMax)
 			);
 
+		//if timer <= 0
+		if (timer <= 0f)
+		{
+			//set it to 0
+			timer= 0f;
+		}
+
 		//shoot the thing
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) && timer > 0f)
 		{
 			Instantiate(thrown, throwSpawn.transform.position, throwSpawn.transform.rotation);
+
+			//make the timer 0
+			timer = 0f;
 		}
 	}
 
 
 }
+
+
+//Xblivior

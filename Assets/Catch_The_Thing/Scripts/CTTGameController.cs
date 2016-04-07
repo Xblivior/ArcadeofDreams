@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CTTGameController : MonoBehaviour 
 {
@@ -22,6 +23,9 @@ public class CTTGameController : MonoBehaviour
 	public void Victory()
 	{
 		victoryText.enabled = true;
+
+		//load Overworld
+		SceneManager.LoadScene ("Overworld");
 	}
 
 	public void Defeat()

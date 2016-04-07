@@ -25,7 +25,7 @@ public class playerController : MonoBehaviour
 
 		if (canJump = true && Input.GetKeyDown (KeyCode.Space))
 		{
-			playerChar.AddForce (new Vector2(0, 6), ForceMode2D.Impulse);
+			playerChar.AddForce (new Vector2(0, 7), ForceMode2D.Impulse);
 			canJump = false;
 		}
 	}
@@ -34,7 +34,7 @@ public class playerController : MonoBehaviour
 	{
 		if (Input.GetKey(KeyCode.A))
 		{
-			playerChar.AddForce (Vector3.right * moveSpeed);
+			playerChar.AddForce (Vector3.right * -moveSpeed);
 		}
 			
 		if (Input.GetKey(KeyCode.D))

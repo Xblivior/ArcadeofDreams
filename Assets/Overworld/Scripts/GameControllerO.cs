@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameControllerO : MonoBehaviour 
@@ -7,16 +8,31 @@ public class GameControllerO : MonoBehaviour
 	public LayerMask arcadeLayer;
 	bool flag = false;
 
+	public int maxHappiness = 100;
+	public int currentHappiness;
+	public Slider happinessBar;
+
+	public Text scoreTex;
+	public static int score;
+
 	// Use this for initialization
 	void Start () 
 	{
 		SpawnArcades();
+		currentHappiness = maxHappiness;
+		happinessBar.maxValue = maxHappiness;
+		happinessBar.minValue = 0f;
+		happinessBar.wholeNumbers = true;
+
+		score = 0;
+
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		happinessBar.value = currentHappiness; 
+		//scoreTex.text = "Score: " + score;
 	}
 
 
@@ -48,6 +64,16 @@ public class GameControllerO : MonoBehaviour
 
 		Invoke("SpawnArcades",5f);
 		
+	}
+
+	public void Happiness (int happiness)
+	{
+		currentHappiness += happiness;
+	}
+
+	public void Sadness (int sadness)
+	{
+		currentHappiness -= sadness;
 	}
 }
 

@@ -33,19 +33,19 @@ public class PlayerController : MonoBehaviour
 
 		//turn that input into directional vector
 		Vector3 moveDirection;
-		moveDirection = new Vector3(hInput, 0, 0);
+		moveDirection = new Vector3(0, -hInput, 0);
 		moveDirection = moveDirection * speed * Time.deltaTime;
 
 		//move transform by that vector
 		transform.Translate(moveDirection);
 
 		//Get map boundary
-		GetComponent<Rigidbody2D>().position = new Vector2
+/*		GetComponent<Rigidbody2D>().position = new Vector2
 			( 
 				Mathf.Clamp (GetComponent<Rigidbody2D>().position.x, xMin, xMax),
 				Mathf.Clamp (GetComponent<Rigidbody2D>().position.y, yMin, yMax)
 			);
-
+*/
 		//if timer <= 0
 		if (timer <= 0f)
 		{

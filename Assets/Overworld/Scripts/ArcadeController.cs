@@ -53,7 +53,7 @@ public class ArcadeController : MonoBehaviour
 	{
 		
 		gameController.GetComponent<GameControllerO>().Happiness(5);
-		playerO.GetComponent<FirstPersonController>().enabled = false;
+		playerO.GetComponent<FirstPersonController>().enabled = true;
 		Destroy(this.gameObject);
 
 	}
@@ -62,7 +62,7 @@ public class ArcadeController : MonoBehaviour
 	{
 		
 		gameController.GetComponent<GameControllerO>().Sadness(5);
-		playerO.GetComponent<FirstPersonController>().enabled = false;
+		playerO.GetComponent<FirstPersonController>().enabled = true;
 		Destroy(this.gameObject);
 
 	}

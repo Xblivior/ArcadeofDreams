@@ -8,6 +8,7 @@ public class ArcadeController : MonoBehaviour
 	public string[] nextLevel;
 	public GameObject gameController;
 	public GameObject playerO;
+	public Camera arcadeCam;
 
 
 	// Use this for initialization
@@ -42,6 +43,11 @@ public class ArcadeController : MonoBehaviour
 		}
 	}
 */
+
+	public void StartGameCam()
+	{
+		arcadeCam.GetComponent<GameController>().ActivateGame();
+	}
 	void Win()
 	{
 		

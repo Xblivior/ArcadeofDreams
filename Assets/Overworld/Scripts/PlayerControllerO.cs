@@ -34,7 +34,7 @@ public class PlayerControllerO : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.F))
 			{
 				gameObject.GetComponent<FirstPersonController>().enabled = false;
-
+				arcade.GetComponent<ArcadeController>().StartGameCam();
 				//arcade.GetComponent<ArcadeController>().WinOrLose();
 			}
 		}

@@ -15,6 +15,9 @@ public class Randomiser : MonoBehaviour
 	public float xMinG, xMaxG, yPosG; //Gaol
 	public float xMinP, xMaxP, yPosP; //Player
 
+	public GameObject leftBorder;
+	public GameObject rightBorder;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -31,7 +34,7 @@ public class Randomiser : MonoBehaviour
 	void RandomPlayer()
 	{
 		//randomize player start position
-		player.transform.position = new Vector3(Random.Range(xMinP, xMaxP), yPosP, 0f);
+		player.transform.position = Vector2.Lerp(leftBorder.transform.position, rightBorder.transform.position, Random.Range(0, 1));
 
 		//get random material
 		Sprite randomMatP = playerMat[Random.Range(0, playerMat.Length)]; 
@@ -43,7 +46,7 @@ public class Randomiser : MonoBehaviour
 	void RandomGoal()
 	{
 		//randomize player start position
-		goal.transform.position = new Vector3(Random.Range(xMinG, xMaxG), yPosG, 0f);
+		goal.transform.position = Vector2.Lerp(leftBorder.transform.position, rightBorder.transform.position, Random.Range(0, 1));
 
 		//get random material
 		Sprite randomMatG = goalMat[Random.Range(0, goalMat.Length)]; 

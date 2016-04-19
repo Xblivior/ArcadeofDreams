@@ -18,7 +18,10 @@ public class GameControllerO : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		//Start Spawning Arcades
 		SpawnArcades();
+
+		//Set variables
 		currentHappiness = maxHappiness;
 		happinessBar.maxValue = maxHappiness;
 		happinessBar.minValue = 0f;

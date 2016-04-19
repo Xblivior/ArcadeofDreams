@@ -48,25 +48,38 @@ public class ArcadeController : MonoBehaviour
 
 	public void StartGameCam()
 	{
+		//tell the MiniGame Camera to start the game
 		arcadeCam.GetComponent<GameController>().ActivateGame();
 	}
 
 	public void Win()
 	{
-		
+		//increase Happiness
 		gameController.GetComponent<GameControllerO>().Happiness(5);
+
+		//enable FPC
 		playerO.GetComponent<FirstPersonController>().enabled = true;
+
+		//enable FPCam
 		playerCam.enabled = true;
+
+		//destroy arcade machine
 		Destroy(this.gameObject);
 
 	}
 
 	public void Lose()
 	{
-		
+		//decrease happiness
 		gameController.GetComponent<GameControllerO>().Sadness(5);
+
+		//enable FPC
 		playerO.GetComponent<FirstPersonController>().enabled = true;
+
+		//enable FPCam
 		playerCam.enabled = true;
+
+		//destroy arcade machine
 		Destroy(this.gameObject);
 
 	}

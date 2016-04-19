@@ -34,8 +34,13 @@ public class PlayerControllerO : MonoBehaviour
 			//and the player presses f
 			if (Input.GetKeyDown(KeyCode.F))
 			{
+				//switch FPC off
 				gameObject.GetComponent<FirstPersonController>().enabled = false;
+
+				//tell the arcade to start
 				arcade.GetComponent<ArcadeController>().StartGameCam();
+
+				//switch FPCam off
 				playerView.enabled = false;
 
 			}

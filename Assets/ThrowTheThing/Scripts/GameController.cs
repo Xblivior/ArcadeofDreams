@@ -49,8 +49,13 @@ public class GameController : MonoBehaviour
 	public void Victory()
 	{
 		//victory = true;
+		//show Win Text
 		victoryText.enabled = true;
+
+		//tell arcade to do Win()
 		arcade.GetComponent<ArcadeController>().Win();
+
+		//disable minigame player controller
 		arcadePlayer.GetComponent<PlayerController>().enabled = false;
 
 	}
@@ -58,17 +63,27 @@ public class GameController : MonoBehaviour
 	public void FailGame()
 	{
 		//fail = true;
+		//show Lose text
 		failText.enabled = true;
+
+		//tell arcade to do  Lose()
 		arcade.GetComponent<ArcadeController>().Lose();
+
+		//disable minigame player controller
 		arcadePlayer.GetComponent<PlayerController>().enabled = false;
 	
 	}
 
 	public void ActivateGame()
 	{
+		//start randomiser
 		gameObject.GetComponent<Randomiser>().enabled = true;
+
+		//enable minigame player controller
 		arcadePlayer.GetComponent<PlayerController>().enabled = true;
-		//Timer();
+
+		//start timer
+		Timer();
 
 	}
 		

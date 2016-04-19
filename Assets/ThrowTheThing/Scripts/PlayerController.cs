@@ -9,9 +9,6 @@ public class PlayerController : MonoBehaviour
 
 	//Variables for player movement
 	public float speed;
-	public float xMin, xMax, yMin, yMax;
-	public GameObject leftBorder;
-	public GameObject rightBorder;
 
 	float timer = 5f;
 
@@ -39,13 +36,6 @@ public class PlayerController : MonoBehaviour
 		//move transform by that vector
 		transform.Translate(moveDirection);
 
-		//Get map boundary
-/*		GetComponent<Rigidbody2D>().position = new Vector2
-			( 
-				Mathf.Clamp (GetComponent<Rigidbody2D>().position.x, xMin, xMax),
-				Mathf.Clamp (GetComponent<Rigidbody2D>().position.y, yMin, yMax)
-			);
-*/
 		//if timer <= 0
 		if (timer <= 0f)
 		{
@@ -56,6 +46,8 @@ public class PlayerController : MonoBehaviour
 		//shoot the thing
 		if (Input.GetKeyDown(KeyCode.Space) && timer > 0f)
 		{
+
+			//shoot
 			Instantiate(thrown, throwSpawn.transform.position, throwSpawn.transform.rotation);
 
 			//make the timer 0

@@ -9,6 +9,9 @@ public class GameController : MonoBehaviour
 	public Text failText;
 	public Slider timerSlider;
 
+	public GameObject arcadePlayer;
+	public GameObject arcade;
+
 	bool victory;
 	bool fail;
 	float timer = 3f;
@@ -28,8 +31,6 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		Timer();
-
 
 	}
 
@@ -49,21 +50,28 @@ public class GameController : MonoBehaviour
 	{
 		//victory = true;
 		victoryText.enabled = true;
-		//Time.timeScale = 0.05f;
+		arcade.SendMessage("Win");
+		arcadePlayer.GetComponent<PlayerController>().enabled = false;
 
-		//load Overworld
-		SceneManager.LoadScene ("Overworld");
 	}
 
 	public void FailGame()
 	{
 		//fail = true;
 		failText.enabled = true;
-		Time.timeScale = 0.05f;
+		arcade.SendMessage("Lose");
+		arcadePlayer.GetComponent<PlayerController>().enabled = false;
 	
 	}
 
+	public void ActivateGame()
+	{
+		gameObject.GetComponent<Randomiser>().enabled = true;
+		arcadePlayer.GetComponent<PlayerController>().enabled = true;
+		Timer();
 
+	}
+		
 }
 
 //Xblivior

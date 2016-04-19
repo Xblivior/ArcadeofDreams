@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerControllerO : MonoBehaviour 
 {
 	public GameObject arcade;
 	public GameObject ground;
+
 
 	public Text startTex;
 
@@ -13,6 +15,7 @@ public class PlayerControllerO : MonoBehaviour
 	void Start () 
 	{
 		startTex.enabled = false;
+
 	}
 	
 	// Update is called once per frame
@@ -30,9 +33,9 @@ public class PlayerControllerO : MonoBehaviour
 			//and the player presses f
 			if (Input.GetKeyDown(KeyCode.F))
 			{
-				//load the next level
-				//arcade.GetComponent<ArcadeController>().NextLevel(); 
-				arcade.GetComponent<ArcadeController>().WinOrLose();
+				gameObject.GetComponent<FirstPersonController>().enabled = false;
+
+				//arcade.GetComponent<ArcadeController>().WinOrLose();
 			}
 		}
 	}

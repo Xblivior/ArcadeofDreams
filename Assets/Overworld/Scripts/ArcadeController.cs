@@ -9,6 +9,7 @@ public class ArcadeController : MonoBehaviour
 	public GameObject gameController;
 	public GameObject playerO;
 	public Camera arcadeCam;
+	public Camera playerCam;
 
 
 	// Use this for initialization
@@ -16,8 +17,9 @@ public class ArcadeController : MonoBehaviour
 	{
 		gameController = GameObject.FindGameObjectWithTag("GameController");
 		playerO = GameObject.FindGameObjectWithTag("Player");
+		playerCam = Camera.main;
 	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -54,6 +56,7 @@ public class ArcadeController : MonoBehaviour
 		
 		gameController.GetComponent<GameControllerO>().Happiness(5);
 		playerO.GetComponent<FirstPersonController>().enabled = true;
+		playerCam.enabled = true;
 		Destroy(this.gameObject);
 
 	}
@@ -63,6 +66,7 @@ public class ArcadeController : MonoBehaviour
 		
 		gameController.GetComponent<GameControllerO>().Sadness(5);
 		playerO.GetComponent<FirstPersonController>().enabled = true;
+		playerCam.enabled = true;
 		Destroy(this.gameObject);
 
 	}

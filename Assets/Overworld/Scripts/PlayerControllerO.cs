@@ -7,6 +7,7 @@ public class PlayerControllerO : MonoBehaviour
 {
 	public GameObject arcade;
 	public GameObject ground;
+	public Camera playerView;
 
 
 	public Text startTex;
@@ -35,7 +36,8 @@ public class PlayerControllerO : MonoBehaviour
 			{
 				gameObject.GetComponent<FirstPersonController>().enabled = false;
 				arcade.GetComponent<ArcadeController>().StartGameCam();
-				//arcade.GetComponent<ArcadeController>().WinOrLose();
+				playerView.enabled = false;
+
 			}
 		}
 	}

@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour
 	{
 		//victory = true;
 		victoryText.enabled = true;
-		arcade.SendMessage("Win");
+		arcade.GetComponent<ArcadeController>().Win();
 		arcadePlayer.GetComponent<PlayerController>().enabled = false;
 
 	}
@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
 	{
 		//fail = true;
 		failText.enabled = true;
-		arcade.SendMessage("Lose");
+		arcade.GetComponent<ArcadeController>().Lose();
 		arcadePlayer.GetComponent<PlayerController>().enabled = false;
 	
 	}
@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour
 	{
 		gameObject.GetComponent<Randomiser>().enabled = true;
 		arcadePlayer.GetComponent<PlayerController>().enabled = true;
-		Timer();
+		//Timer();
 
 	}
 		

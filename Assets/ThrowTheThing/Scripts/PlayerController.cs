@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 	//Variables for player movement
 	public float speed;
 	public float xMin, xMax, yMin, yMax;
+	public GameObject leftBorder;
+	public GameObject rightBorder;
 
 	float timer = 5f;
 

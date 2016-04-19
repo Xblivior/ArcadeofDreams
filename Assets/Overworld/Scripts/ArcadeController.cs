@@ -48,7 +48,8 @@ public class ArcadeController : MonoBehaviour
 	{
 		arcadeCam.GetComponent<GameController>().ActivateGame();
 	}
-	void Win()
+
+	public void Win()
 	{
 		
 		gameController.GetComponent<GameControllerO>().Happiness(5);
@@ -57,7 +58,7 @@ public class ArcadeController : MonoBehaviour
 
 	}
 
-	void Lose()
+	public void Lose()
 	{
 		
 		gameController.GetComponent<GameControllerO>().Sadness(5);

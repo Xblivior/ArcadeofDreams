@@ -37,10 +37,10 @@ public class Randomiser : MonoBehaviour
 		player.transform.position = Vector2.Lerp(leftBorder.transform.position, rightBorder.transform.position, Random.Range(0, 1));
 
 		//get random material
-		Sprite randomMatP = playerMat[Random.Range(0, playerMat.Length)]; 
+		//Sprite randomMatP = playerMat[Random.Range(0, playerMat.Length)]; 
 
 		// apply random material
-		player.GetComponent<SpriteRenderer>().sprite = randomMatP;
+		//player.GetComponent<SpriteRenderer>().sprite = randomMatP;
 	}
 
 	void RandomGoal()
@@ -49,10 +49,10 @@ public class Randomiser : MonoBehaviour
 		goal.transform.position = Vector2.Lerp(leftBorder.transform.position, rightBorder.transform.position, Random.Range(0, 1));
 
 		//get random material
-		Sprite randomMatG = goalMat[Random.Range(0, goalMat.Length)]; 
+		//Sprite randomMatG = goalMat[Random.Range(0, goalMat.Length)]; 
 
 		// apply random material
-		goal.GetComponent<SpriteRenderer>().sprite = randomMatG;
+		//goal.GetComponent<SpriteRenderer>().sprite = randomMatG;
 	}
 
 

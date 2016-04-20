@@ -37,6 +37,7 @@ public class GameController : MonoBehaviour
 	public void Timer()
 	{
 		timer -= Time.deltaTime;
+		Debug.Log (timer);
 		timerSlider.GetComponent<Slider>().value = timer;
 
 		if (timer <= 0f)

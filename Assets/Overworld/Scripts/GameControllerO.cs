@@ -52,7 +52,7 @@ public class GameControllerO : MonoBehaviour
 			randomPos += Random.insideUnitCircle * 5;
 
 			//pick a spot
-			Vector3 possibleSpot = new Vector3 (randomPos.x, 1.5f, randomPos.y);
+			Vector3 possibleSpot = new Vector3 (randomPos.x, 2f, randomPos.y);
 
 			// if spot is good (if there is nothing in the check)
 			if (!Physics.CheckSphere(possibleSpot, 3f, arcadeLayer))

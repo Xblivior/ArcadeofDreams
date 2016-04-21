@@ -41,7 +41,7 @@ public class PlayerControllerO : MonoBehaviour
 				arcade.GetComponent<ArcadeController>().StartGameCam();
 
 				//switch FPCam off
-				playerView.enabled = false;
+				//playerView.enabled = false;
 
 			}
 		}

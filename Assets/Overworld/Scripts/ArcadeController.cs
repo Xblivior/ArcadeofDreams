@@ -6,7 +6,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class ArcadeController : MonoBehaviour 
 {
 	public string[] nextLevel;
-	public GameObject gameController;
+	public GameController gameController;
+	public GameObject gameControllerO;
 	public GameObject playerO;
 	public Camera arcadeCam;
 	public Camera playerCam;
@@ -15,7 +16,8 @@ public class ArcadeController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		gameController = GameObject.FindGameObjectWithTag("GameController");
+		gameController = arcadeCam.GetComponent<GameController>();
+		gameControllerO = GameObject.FindGameObjectWithTag ("GameController");
 		playerO = GameObject.FindGameObjectWithTag("Player");
 		playerCam = Camera.main;
 	}
@@ -49,13 +51,14 @@ public class ArcadeController : MonoBehaviour
 	public void StartGameCam()
 	{
 		//tell the MiniGame Camera to start the game
-		arcadeCam.GetComponent<GameController>().ActivateGame();
+		arcadeCam.gameObject.SetActive(true);
+		gameController.ActivateGame();
 	}
 
 	public void Win()
 	{
 		//increase Happiness
-		gameController.GetComponent<GameControllerO>().Happiness(5);
+		gameControllerO.GetComponent<GameControllerO>().Happiness(5);
 
 		//enable FPC
 		playerO.GetComponent<FirstPersonController>().enabled = true;
@@ -71,7 +74,7 @@ public class ArcadeController : MonoBehaviour
 	public void Lose()
 	{
 		//decrease happiness
-		gameController.GetComponent<GameControllerO>().Sadness(5);
+		gameControllerO.GetComponent<GameControllerO>().Sadness(5);
 
 		//enable FPC
 		playerO.GetComponent<FirstPersonController>().enabled = true;

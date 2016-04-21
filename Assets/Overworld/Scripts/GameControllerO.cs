@@ -71,12 +71,12 @@ public class GameControllerO : MonoBehaviour
 
 	public void Happiness (int happiness)
 	{
-		currentHappiness += happiness;
+		currentHappiness = Mathf.Clamp(currentHappiness + happiness, 0, 100);
 	}
 
 	public void Sadness (int sadness)
 	{
-		currentHappiness -= sadness;
+		currentHappiness = Mathf.Clamp(currentHappiness - sadness, 0, 100);
 	}
 }
 

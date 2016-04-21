@@ -10,12 +10,13 @@ public class PlayerController : MonoBehaviour
 	//Variables for player movement
 	public float speed;
 
+	bool hasShot;
 	float timer = 5f;
 
 	// Use this for initialization
 	void Start () 
 	{
-	
+		hasShot = false;
 	}
 	
 	// Update is called once per frame
@@ -44,14 +45,13 @@ public class PlayerController : MonoBehaviour
 		}
 
 		//shoot the thing
-		if (Input.GetKeyDown(KeyCode.Space) && timer > 0f)
+		if (Input.GetKeyDown(KeyCode.Space) && hasShot == false)
 		{
 
 			//shoot
 			Instantiate(thrown, throwSpawn.transform.position, throwSpawn.transform.rotation);
 
-			//make the timer 0
-			timer = 0f;
+			hasShot = true;
 		}
 	}
 

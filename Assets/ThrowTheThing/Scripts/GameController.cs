@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
 	bool victory;
 	bool fail;
 
-	bool isActive;
+	bool activeGame = false;
 	float timer = 3f;
 
 
@@ -29,13 +29,13 @@ public class GameController : MonoBehaviour
 		//victory = false;
 		//fail = false;
 
-		isActive = false;
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-		if (isActive == true)
+		print(activeGame);
+		if (activeGame == true)
 		{
 			timer -= Time.deltaTime;
 			Debug.Log (timer);
@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
 		arcadePlayer.GetComponent<PlayerController>().enabled = true;
 
 		//start timer
-		isActive = true;
+		activeGame = true;
 
 	}
 		

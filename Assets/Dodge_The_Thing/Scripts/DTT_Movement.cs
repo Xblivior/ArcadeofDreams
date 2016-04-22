@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class DTT_Movement : MonoBehaviour {
+	//create references for player movement, rigidbody and speed
 	 float playerMove;
 	float moveSpeed = 4f;
 	public Rigidbody2D Player;
@@ -15,18 +16,14 @@ public class DTT_Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		
+		//player moves along the horizontal axis
 		playerMove = Input.GetAxisRaw ("Horizontal");
 		Vector3 movement;
 		movement = new Vector3 (playerMove, 0,0);
 		movement = movement * moveSpeed * Time.deltaTime;
 
-		transform.Translate (movement);
+		transform.Translate (movement); // Left and right movement
 
-		if (transform.position.x <= -8.003f)
-			transform.position = new Vector3 (7.8f, transform.position.y, transform.position.z);
-		else if (transform.position.x >= 7.99f)
-			transform.position = new Vector3 (-8f, transform.position.y, transform.position.z);
 
 	}
 	void OnTriggerEnter(Collider other)

@@ -88,6 +88,22 @@ public class GameController : MonoBehaviour
 		activeGame = true;
 
 	}
+
+	public void ActivateDTT()
+	{
+		
+	}
+
+	public void ActivateCTT()
+	{
+		
+	}
+
+	public void ActivatePlatformer()
+	{
+		
+	}
+
 		
 }
 

@@ -51,6 +51,9 @@ public class ArcadeController : MonoBehaviour
 		//increase Happiness
 		gameControllerO.GetComponent<GameControllerO>().Happiness(5f);
 
+		//increase score
+		gameControllerO.GetComponent<GameControllerO>().Score(10);
+
 		//enable FPC
 		playerO.GetComponent<FirstPersonController>().enabled = true;
 

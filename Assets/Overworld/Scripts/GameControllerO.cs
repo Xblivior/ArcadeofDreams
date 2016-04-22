@@ -13,7 +13,8 @@ public class GameControllerO : MonoBehaviour
 	public Slider happinessBar;
 
 	public Text scoreTex;
-	public static int score;
+	public int score;
+	public int currentScore;
 
 	// Use this for initialization
 	void Start () 
@@ -26,8 +27,7 @@ public class GameControllerO : MonoBehaviour
 		happinessBar.maxValue = maxHappiness;
 		happinessBar.minValue = 0f;
 		happinessBar.wholeNumbers = true;
-
-		score = 0;
+		currentScore = 0;
 
 	}
 	
@@ -35,7 +35,7 @@ public class GameControllerO : MonoBehaviour
 	void Update () 
 	{
 		happinessBar.value = currentHappiness; 
-		//scoreTex.text = "Score: " + score;
+		scoreTex.text = "Score: " + currentScore;
 	}
 
 
@@ -77,6 +77,11 @@ public class GameControllerO : MonoBehaviour
 	public void Sadness (float sadness)
 	{
 		currentHappiness = Mathf.Clamp(currentHappiness - sadness, 0f, 100f);
+	}
+
+	public void Score(int score)
+	{
+		currentScore += score;
 	}
 }
 

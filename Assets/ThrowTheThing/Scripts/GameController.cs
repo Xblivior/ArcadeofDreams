@@ -34,11 +34,9 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		print(activeGame);
 		if (activeGame == true)
 		{
 			timer -= Time.deltaTime;
-			Debug.Log (timer);
 			timerSlider.GetComponent<Slider>().value = timer;
 		}
 

@@ -8,8 +8,8 @@ public class GameControllerO : MonoBehaviour
 	public LayerMask arcadeLayer;
 	bool flag = false;
 
-	public int maxHappiness = 100;
-	public int currentHappiness;
+	public float maxHappiness = 100;
+	public float currentHappiness;
 	public Slider happinessBar;
 
 	public Text scoreTex;
@@ -66,17 +66,17 @@ public class GameControllerO : MonoBehaviour
 		}
 
 		Invoke("SpawnArcades",5f);
-		
+
 	}
 
-	public void Happiness (int happiness)
+	public void Happiness (float happiness)
 	{
-		currentHappiness = Mathf.Clamp(currentHappiness + happiness, 0, 100);
+		currentHappiness = Mathf.Clamp(currentHappiness + happiness, 0f, 100f);
 	}
 
-	public void Sadness (int sadness)
+	public void Sadness (float sadness)
 	{
-		currentHappiness = Mathf.Clamp(currentHappiness - sadness, 0, 100);
+		currentHappiness = Mathf.Clamp(currentHappiness - sadness, 0f, 100f);
 	}
 }
 

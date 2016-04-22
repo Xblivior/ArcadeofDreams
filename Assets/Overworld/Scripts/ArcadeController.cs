@@ -12,6 +12,7 @@ public class ArcadeController : MonoBehaviour
 	public Camera arcadeCam;
 	public Camera playerCam;
 
+	float timer = 3f;
 
 	// Use this for initialization
 	void Start () 
@@ -20,45 +21,35 @@ public class ArcadeController : MonoBehaviour
 		gameControllerO = GameObject.FindGameObjectWithTag ("GameController");
 		playerO = GameObject.FindGameObjectWithTag("Player");
 		playerCam = Camera.main;
+
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
+		timer -= Time.deltaTime;
+
+		if (timer <= 0f)
+		{
+			//decrease happiness
+			gameControllerO.GetComponent<GameControllerO>().Sadness(0.1f);
+			timer = 1f;
+		}
+	}
 		
-	}
-
-	public void NextLevel()
-	{
-		//SceneManager.LoadScene (nextLevel[Random.Range (0, nextLevel.Length)]);
-	}
-
-/*	public void WinOrLose()
-	{
-		float randomNum = Random.Range (1f, 10f);
-
-		if (randomNum <= 5f)
-		{
-			Win();
-		}
-		else if (randomNum > 5f)
-		{
-			Lose();
-		}
-	}
-*/
-
 	public void StartGameCam()
 	{
 		//tell the MiniGame Camera to start the game
 		arcadeCam.gameObject.SetActive(true);
 		gameController.ActivateGame();
+
+
 	}
 
 	public void Win()
 	{
 		//increase Happiness
-		gameControllerO.GetComponent<GameControllerO>().Happiness(5);
+		gameControllerO.GetComponent<GameControllerO>().Happiness(5f);
 
 		//enable FPC
 		playerO.GetComponent<FirstPersonController>().enabled = true;
@@ -74,7 +65,7 @@ public class ArcadeController : MonoBehaviour
 	public void Lose()
 	{
 		//decrease happiness
-		gameControllerO.GetComponent<GameControllerO>().Sadness(5);
+		gameControllerO.GetComponent<GameControllerO>().Sadness(5f);
 
 		//enable FPC
 		playerO.GetComponent<FirstPersonController>().enabled = true;

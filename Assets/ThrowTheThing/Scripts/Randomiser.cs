@@ -12,9 +12,6 @@ public class Randomiser : MonoBehaviour
 	public GameObject player;
 
 	//spawn point variables
-	public float xMinG, xMaxG, yPosG; //Gaol
-	public float xMinP, xMaxP, yPosP; //Player
-
 	public GameObject leftBorder;
 	public GameObject rightBorder;
 

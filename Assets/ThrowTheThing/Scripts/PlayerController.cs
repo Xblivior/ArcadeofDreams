@@ -44,14 +44,17 @@ public class PlayerController : MonoBehaviour
 			timer= 0f;
 		}
 
-		//shoot the thing
-		if (Input.GetKeyDown(KeyCode.Space) && hasShot == false)
+		if (gameObject.tag == "TTTPlayer")
 		{
+			//shoot the thing
+			if (Input.GetKeyDown(KeyCode.Space) && hasShot == false)
+			{
 
-			//shoot
-			Instantiate(thrown, throwSpawn.transform.position, throwSpawn.transform.rotation);
+				//shoot
+				Instantiate(thrown, throwSpawn.transform.position, throwSpawn.transform.rotation);
 
-			hasShot = true;
+				hasShot = true;
+			}
 		}
 	}
 

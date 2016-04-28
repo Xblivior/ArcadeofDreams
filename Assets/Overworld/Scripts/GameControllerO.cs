@@ -17,6 +17,13 @@ public class GameControllerO : MonoBehaviour
 	public int score;
 	public int currentScore;
 
+	public Image realityPic1;
+	public Image realityPic2;
+	public Image realityPic3;
+	public Image realityPic4;
+
+	public Sprite[] realityImage; 
+
 	int highscore;
 	// Use this for initialization
 	void Start () 
@@ -50,6 +57,10 @@ public class GameControllerO : MonoBehaviour
 				PlayerPrefs.SetInt ("Highscore");
 			}*/
 		}
+
+
+
+
 	}
 
 
@@ -86,6 +97,12 @@ public class GameControllerO : MonoBehaviour
 	public void Happiness (float happiness)
 	{
 		currentHappiness = Mathf.Clamp(currentHappiness + happiness, 0f, 100f);
+		if (currentHappiness <= 75f)
+		{
+			realityPic1.enabled = true;
+			Sprite randomPic = realityImage[Random.Range(0, realityImage.Length)];
+			realityPic1.GetComponent<Image>().sprite = randomPic;
+		}
 	}
 
 	public void Sadness (float sadness)

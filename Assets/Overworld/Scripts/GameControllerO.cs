@@ -39,16 +39,16 @@ public class GameControllerO : MonoBehaviour
 	{
 		happinessBar.value = currentHappiness; 
 		scoreTex.text = "Score: " + currentScore;
-		highScoreTex.text = PlayerPrefs.GetInt ("HighScore");
+		//highScoreTex.text = PlayerPrefs.GetInt ("HighScore");
 
 		if (currentHappiness <= 0f)
 		{
 			GameOver();
-			//playerprefs
+			/*playerprefs
 			if (currentScore > PlayerPrefs.GetInt ("Highscore")) 
 			{
 				PlayerPrefs.SetInt ("Highscore");
-			}
+			}*/
 		}
 	}
 

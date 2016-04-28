@@ -4,7 +4,7 @@ using System.Collections;
 public class DTTEnemy : MonoBehaviour {
 	//sets the rigidbody and sets the enemies' drop speed
 	public Rigidbody2D Enemy;
-	float dropSpeed = 5f;
+	float dropSpeed = 0.5f;
 	// Use this for initialization
 	void Start () {
 		//gets the enemies' rigidbody
@@ -17,4 +17,14 @@ public class DTTEnemy : MonoBehaviour {
 		Enemy.velocity = transform.up * -dropSpeed;
 
 	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "DTTWall")
+		{
+			Destroy(this.gameObject); 
+		}
+	}
 }
+
+//Kotis

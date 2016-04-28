@@ -14,12 +14,26 @@ public class Randomiser : MonoBehaviour
 	//spawn point variables
 	public GameObject leftBorder;
 	public GameObject rightBorder;
+	public GameObject topBorder;
+	//DTTRandomiser Variables
+	public GameObject[] dTTEnemy; 
+	public int enemyCount;
+	public int hazardCount;
+	public float spawnWait;
 
 	// Use this for initialization
 	void Start () 
 	{
 		RandomPlayer();
-		RandomGoal();
+		if (gameObject.tag != "DTTCamera")
+		{
+			RandomGoal();
+		}
+
+		if (gameObject.tag == "DTTCamera")
+		{
+			StartCoroutine(RandomEnemyDTT());
+		}
 	}
 	
 	// Update is called once per frame
@@ -42,7 +56,7 @@ public class Randomiser : MonoBehaviour
 
 	void RandomGoal()
 	{
-		//randomize player start position
+		//randomize goal start position
 		goal.transform.position = new Vector3(Mathf.Lerp(leftBorder.transform.position.x, rightBorder.transform.position.x, Random.Range(0f, 1f)), goal.transform.position.y, goal.transform.position.z);
 
 		//get random material
@@ -52,6 +66,23 @@ public class Randomiser : MonoBehaviour
 		//goal.GetComponent<SpriteRenderer>().sprite = randomMatG;
 	}
 
+	IEnumerator RandomEnemyDTT()
+	{
+		for (int i = 0; i < hazardCount; i++)
+		{	//get new spawnpoints
+		
+			Vector3 dTTEnemyT = topBorder.transform.position; 
+			dTTEnemyT = new Vector3(Random.Range(leftBorder.transform.position.x, rightBorder.transform.position.x),dTTEnemyT.y,dTTEnemyT.z);
+		
+			//spawn enemies
+			Instantiate(dTTEnemy[Random.Range(0, 2)], dTTEnemyT,Quaternion.identity);
+			yield return new WaitForSeconds(spawnWait);
+		}
+		//increase the amount of enemies spawned each time
+		hazardCount += 2;
+		yield return new WaitForSeconds (0.2f);
+		StartCoroutine(RandomEnemyDTT());
+	}
 
 }
 

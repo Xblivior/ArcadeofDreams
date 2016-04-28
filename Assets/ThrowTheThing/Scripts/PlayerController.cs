@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 	public GameObject thrown;
 	public Transform throwSpawn;
 
+	public GameObject gameController;
+
 	//Variables for player movement
 	public float speed;
 
@@ -44,9 +46,10 @@ public class PlayerController : MonoBehaviour
 			timer= 0f;
 		}
 
+		//if the player has the TTTPlayer tag
 		if (gameObject.tag == "TTTPlayer")
 		{
-			//shoot the thing
+			//presses space and hasSHot is false is true
 			if (Input.GetKeyDown(KeyCode.Space) && hasShot == false)
 			{
 
@@ -55,6 +58,14 @@ public class PlayerController : MonoBehaviour
 
 				hasShot = true;
 			}
+		}
+	}
+
+	public void OnTriggerEnter2D (Collider2D other)
+	{
+		if (other.tag == "DTTEnemy")
+		{
+			gameController.GetComponent<GameController>().FailGame();
 		}
 	}
 

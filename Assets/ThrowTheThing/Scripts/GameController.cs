@@ -40,9 +40,15 @@ public class GameController : MonoBehaviour
 			timerSlider.GetComponent<Slider>().value = timer;
 		}
 
-		if (timer <= 0f)
+		if (timer <= 0f && gameObject.tag != "DTTCamera")
 		{
 			FailGame();
+
+		}
+
+		if (timer <= 0f && gameObject.tag == "DTTCamera")
+		{
+			Victory();
 		}
 	}
 

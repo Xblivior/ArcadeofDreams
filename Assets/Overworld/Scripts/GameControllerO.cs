@@ -17,6 +17,7 @@ public class GameControllerO : MonoBehaviour
 	public int score;
 	public int currentScore;
 
+	int highscore;
 	// Use this for initialization
 	void Start () 
 	{
@@ -30,6 +31,7 @@ public class GameControllerO : MonoBehaviour
 		happinessBar.wholeNumbers = true;
 		currentScore = 0;
 
+
 	}
 	
 	// Update is called once per frame
@@ -37,10 +39,16 @@ public class GameControllerO : MonoBehaviour
 	{
 		happinessBar.value = currentHappiness; 
 		scoreTex.text = "Score: " + currentScore;
+		highScoreTex.text = PlayerPrefs.GetInt ("HighScore");
 
 		if (currentHappiness <= 0f)
 		{
 			GameOver();
+			//playerprefs
+			if (currentScore > PlayerPrefs.GetInt ("Highscore")) 
+			{
+				PlayerPrefs.SetInt ("Highscore");
+			}
 		}
 	}
 

@@ -63,13 +63,13 @@ public class GameControllerO : MonoBehaviour
 		while (!flag)
 		{
 			//get random spot
-			randomPos += Random.insideUnitCircle * 5;
+			randomPos += Random.insideUnitCircle * 10;
 
 			//pick a spot
-			Vector3 possibleSpot = new Vector3 (randomPos.x, 2f, randomPos.y);
+			Vector3 possibleSpot = new Vector3 (randomPos.x, 1.98f, randomPos.y);
 
 			// if spot is good (if there is nothing in the check)
-			if (!Physics.CheckSphere(possibleSpot, 3f, arcadeLayer))
+			if (!Physics.CheckSphere(possibleSpot, 6f, arcadeLayer))
 			{
 				//set flag = true
 				flag = true;
@@ -79,7 +79,7 @@ public class GameControllerO : MonoBehaviour
 
 		}
 
-		Invoke("SpawnArcades",5f);
+		Invoke("SpawnArcades", 3f);
 
 	}
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameControllerO : MonoBehaviour 
 {
@@ -36,6 +37,11 @@ public class GameControllerO : MonoBehaviour
 	{
 		happinessBar.value = currentHappiness; 
 		scoreTex.text = "Score: " + currentScore;
+
+		if (currentHappiness <= 0f)
+		{
+			GameOver();
+		}
 	}
 
 
@@ -82,6 +88,11 @@ public class GameControllerO : MonoBehaviour
 	public void Score(int score)
 	{
 		currentScore += score;
+	}
+
+	public void GameOver()
+	{
+		SceneManager.LoadScene ("LoseScreen");
 	}
 }
 

@@ -97,17 +97,21 @@ public class GameControllerO : MonoBehaviour
 	public void Happiness (float happiness)
 	{
 		currentHappiness = Mathf.Clamp(currentHappiness + happiness, 0f, 100f);
-		if (currentHappiness <= 75f)
-		{
-			realityPic1.enabled = true;
-			Sprite randomPic = realityImage[Random.Range(0, realityImage.Length)];
-			realityPic1.GetComponent<Image>().sprite = randomPic;
-		}
+
 	}
 
 	public void Sadness (float sadness)
 	{
+		if (currentHappiness > 75f && currentHappiness - sadness <= 75f)
+		{
+			Sprite randomPic = realityImage[Random.Range(0, realityImage.Length)];
+			realityPic1.GetComponent<Image>().sprite = randomPic;
+			realityPic1.enabled = true;
+
+		}
+
 		currentHappiness = Mathf.Clamp(currentHappiness - sadness, 0f, 100f);
+
 	}
 
 	public void Score(int score)

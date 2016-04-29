@@ -22,6 +22,8 @@ public class platformerGameController : MonoBehaviour
 	{
 		//start timer
 		timer -= Time.deltaTime;
+		if (timer <= 0)
+			timer = 0;
 
 		//and round it to nearest second
 		int seconds = Mathf.RoundToInt(timer);

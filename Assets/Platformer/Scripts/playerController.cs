@@ -9,6 +9,8 @@ public class playerController : MonoBehaviour
 	public float moveSpeed;
 	public Vector2 jumpHeight;
 
+	public float maxSpeed = 5f;
+
 	private bool canJump = false;
 
 
@@ -35,11 +37,19 @@ public class playerController : MonoBehaviour
 		if (Input.GetKey(KeyCode.A))
 		{
 			playerChar.AddForce (Vector3.right * -moveSpeed);
+			if(playerChar.velocity.magnitude > maxSpeed)
+			{
+				playerChar.velocity = playerChar.velocity.normalized * maxSpeed;
+			}
 		}
 			
 		if (Input.GetKey(KeyCode.D))
 		{
 			playerChar.AddForce (Vector2.right * moveSpeed);
+			if(playerChar.velocity.magnitude > maxSpeed)
+			{
+				playerChar.velocity = playerChar.velocity.normalized * maxSpeed;
+			}
 		}
 	}
 	void CheckJump()

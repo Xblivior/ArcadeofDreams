@@ -4,12 +4,12 @@ using System.Collections;
 public class projectileMovement : MonoBehaviour 
 {
 	public float moveSpeed;
-	public Rigidbody projectile;
+	public Rigidbody2D projectile;
 
 	// Use this for initialization
 	void Start () 
 	{
-		projectile = GetComponent<Rigidbody>();
+		projectile = GetComponent<Rigidbody2D>();
 	}
 	
 	void FixedUpdate () 

@@ -28,11 +28,11 @@ public class playerMovement : MonoBehaviour
 			GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 	}
 
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "CTTProjectile") 
 		{
-		//	gameController.GetComponent<CTTGameController>().Victory();
+			gameController.GetComponent<CTTGameController>().Victory();
 			Destroy (other.gameObject);
 		}
 	}

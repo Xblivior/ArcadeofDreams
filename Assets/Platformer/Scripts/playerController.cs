@@ -23,7 +23,7 @@ public class playerController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		CheckJump();
+		//CheckJump();
 
 		if (canJump = true && Input.GetKeyDown (KeyCode.Space))
 		{
@@ -52,20 +52,30 @@ public class playerController : MonoBehaviour
 			}
 		}
 	}
-	void CheckJump()
+//	void CheckJump()
+//	{
+//		RaycastHit hit;
+//		if (Physics.Raycast(transform.position, -transform.up, out hit, 1))
+//			{
+//			Debug.DrawRay(transform.position, -transform.up, Color.red);
+//			if (hit.transform.tag == "PlatformerGround")
+//			{
+//				canJump = true;
+//			}
+//			else if (hit.transform.tag != "PlatformerGround")
+//			{
+//				canJump = false;
+//			}
+//		}
+//	}
+
+	void OnTriggerEnter2D (Collider2D other)
 	{
-		RaycastHit hit;
-		if (Physics.Raycast(transform.position, -transform.up, out hit, 1))
-			{
-			Debug.DrawRay(transform.position, -transform.up, Color.red);
-			if (hit.transform.tag == "PlatformerGround")
-				{
-					canJump = true;
-				}
-			else if (hit.transform.tag != "PlatformerGround")
-				{
-					canJump = false;
-				}
-			}
+		if (other.gameObject.tag == "PlatformerThirdPlat")
+		{
+			Debug.Log("something");
+			//GetComponent<platformerGameController>().successText.enabled = true;
+		}
+
 	}
 }

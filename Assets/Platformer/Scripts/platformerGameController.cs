@@ -6,7 +6,7 @@ using System.Collections;
 public class platformerGameController : MonoBehaviour 
 {
 	//game state canvas refereneces 
-	public Text timerText;
+	public Text timerText, failText, successText;
 
 	//get timer
 	public float timer = 8f;
@@ -14,7 +14,8 @@ public class platformerGameController : MonoBehaviour
 
 	void Start () 
 	{
-
+		failText.enabled = false;
+		successText.enabled = false;
 	}
 
 
@@ -23,7 +24,10 @@ public class platformerGameController : MonoBehaviour
 		//start timer
 		timer -= Time.deltaTime;
 		if (timer <= 0)
+		{
 			timer = 0;
+			failText.enabled = true;
+		}
 
 		//and round it to nearest second
 		int seconds = Mathf.RoundToInt(timer);

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class projectileSpawner : MonoBehaviour 
 {
-	public Rigidbody projectilePrefab;
+	public Rigidbody2D projectilePrefab;
 	public Transform projectileSpawn;
 	float timer = 0.5f;
 
@@ -26,8 +26,8 @@ public class projectileSpawner : MonoBehaviour
 
 		if (timer <= 0)
 		{
-			Rigidbody projectileInstance;
-			projectileInstance = Instantiate (projectilePrefab, projectileSpawn.position, projectileSpawn.rotation) as Rigidbody;
+			Rigidbody2D projectileInstance;
+			projectileInstance = Instantiate (projectilePrefab, projectileSpawn.position, projectileSpawn.rotation) as Rigidbody2D;
 			timer = 5;
 		}
 	}

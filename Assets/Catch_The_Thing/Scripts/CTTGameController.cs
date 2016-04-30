@@ -10,6 +10,7 @@ public class CTTGameController : MonoBehaviour
 
 	void Start ()
 	{
+		//disables Text from showing on startup and during play unless called
 		victoryText.enabled = false;
 		defeatText.enabled = false;
 	}
@@ -22,6 +23,7 @@ public class CTTGameController : MonoBehaviour
 
 	public void Victory()
 	{
+		//Displays victory text
 		victoryText.enabled = true;
 
 		//load Overworld
@@ -30,6 +32,9 @@ public class CTTGameController : MonoBehaviour
 
 	public void Defeat()
 	{
+		//Displays defeat text
 		defeatText.enabled = true;
 	}
 }
+
+//Eugene

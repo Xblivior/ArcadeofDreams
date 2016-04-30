@@ -36,3 +36,5 @@ public class platformerGameController : MonoBehaviour
 		timerText.text = "Timer: " + seconds + "sec";
 	}
 }
+
+//Eugene

@@ -18,6 +18,7 @@ public class playerCollider : MonoBehaviour
 	}
 	void OnTriggerEnter(Collider other)
 	{
+		//Loads the victory method from the gamecontroller script once collision happens with the projectile
 		if (other.gameObject.tag == "CTTProjectile") 
 		{
 			gameController.GetComponent<CTTGameController>().Victory();
@@ -25,3 +26,5 @@ public class playerCollider : MonoBehaviour
 		}
 	}
 }
+
+//Eugene

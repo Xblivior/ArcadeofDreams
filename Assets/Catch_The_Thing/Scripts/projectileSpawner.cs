@@ -26,9 +26,13 @@ public class projectileSpawner : MonoBehaviour
 
 		if (timer <= 0)
 		{
+			//Spawns the GameObject once the timer is 0. Once the Gameobject is spawned the timer resets to 5.
 			Rigidbody2D projectileInstance;
 			projectileInstance = Instantiate (projectilePrefab, projectileSpawn.position, projectileSpawn.rotation) as Rigidbody2D;
+			//resets timer to 5
 			timer = 5;
 		}
 	}
 }
+
+//Eugene

@@ -14,7 +14,7 @@ public class aiSpawn : MonoBehaviour
 	void Spawn()
 	{
 		float spawnPointX = Random.Range (-4.5f, 4.5f);
-		float spawnPointY = 4.5f;
+		float spawnPointY = 3.5f;
 		Vector3 spawnPosition = new Vector3 (spawnPointX, spawnPointY, -1);
 		Instantiate(AI, spawnPosition, Quaternion.identity);
 

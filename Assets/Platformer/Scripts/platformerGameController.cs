@@ -35,6 +35,13 @@ public class platformerGameController : MonoBehaviour
 		//show countdown 
 		timerText.text = "Timer: " + seconds + "sec";
 	}
+
+	public void Success ()
+	{
+		Debug.Log("something");
+		successText.enabled = true;
+	}
+
 }
 
 //Eugene

@@ -4,6 +4,7 @@ using System.Collections;
 
 public class playerController : MonoBehaviour 
 {
+	public GameObject gameController;
 
 	public Rigidbody2D playerChar;
 	public float moveSpeed;
@@ -74,7 +75,7 @@ public class playerController : MonoBehaviour
 		if (other.gameObject.tag == "PlatformerThirdPlat")
 		{
 			Debug.Log("something");
-			//GetComponent<platformerGameController>().successText.enabled = true;
+			gameController.GetComponent<platformerGameController>().Success();
 		}
 
 	}

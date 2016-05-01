@@ -38,7 +38,6 @@ public class platformerGameController : MonoBehaviour
 
 	public void Success ()
 	{
-		Debug.Log("something");
 		successText.enabled = true;
 	}
 

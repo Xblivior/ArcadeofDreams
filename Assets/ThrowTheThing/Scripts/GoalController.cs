@@ -6,8 +6,9 @@ public class GoalController : MonoBehaviour
 	public GameObject gameController;
 
 	public Rigidbody2D projectilePrefab;
+	public GameObject cTTProjectile;
 	public Transform projectileSpawn;
-	float timer = 0.25f;
+	float timer = 0.15f;
 
 	void Update () 
 	{
@@ -23,9 +24,7 @@ public class GoalController : MonoBehaviour
 		if (timer <= 0)
 		{
 			//Spawns the GameObject once the timer is 0. Once the Gameobject is spawned the timer resets to 5.
-			Rigidbody2D projectileInstance;
-			projectileInstance = Instantiate (projectilePrefab, projectileSpawn.position, projectileSpawn.rotation) as Rigidbody2D;
-			//resets timer to 5
+			Instantiate(cTTProjectile, projectileSpawn.transform.position, Quaternion.identity);
 			timer = 5;
 		}
 	}
@@ -46,4 +45,4 @@ public class GoalController : MonoBehaviour
 }
 
 
-//Xblivior + Eugene
+//Xblivior

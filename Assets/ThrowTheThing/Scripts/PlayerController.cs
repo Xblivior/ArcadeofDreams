@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		//hasShot is false
 		hasShot = false;
 	}
 	
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
 				//shoot
 				Instantiate(thrown, throwSpawn.transform.position, throwSpawn.transform.rotation);
 
+				//set hasShot as true
 				hasShot = true;
 			}
 		}
@@ -63,9 +65,19 @@ public class PlayerController : MonoBehaviour
 
 	public void OnTriggerEnter2D (Collider2D other)
 	{
+		//if other is DTT enemy
 		if (other.tag == "DTTEnemy")
 		{
+			//fail game
 			gameController.GetComponent<GameController>().FailGame();
+		}
+
+		//Loads the victory method from the gamecontroller script once collision happens with the projectile
+		if (other.gameObject.tag == "CTTProjectile") 
+		{
+			
+			gameController.GetComponent<GameController>().Victory();
+			Destroy (other.gameObject);
 		}
 	}
 

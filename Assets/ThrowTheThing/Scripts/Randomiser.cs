@@ -70,8 +70,8 @@ public class Randomiser : MonoBehaviour
 	IEnumerator RandomEnemyDTT()
 	{
 		for (int i = 0; i < hazardCount; i++)
-		{	//get new spawnpoints
-		
+		{	
+			//get new spawnpoints
 			Vector3 dTTEnemyT = topBorder.transform.position; 
 			dTTEnemyT = new Vector3(Random.Range(leftBorder.transform.position.x, rightBorder.transform.position.x),dTTEnemyT.y,dTTEnemyT.z);
 		

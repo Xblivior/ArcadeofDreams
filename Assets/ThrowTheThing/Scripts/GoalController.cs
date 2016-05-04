@@ -5,10 +5,9 @@ public class GoalController : MonoBehaviour
 {
 	public GameObject gameController;
 
-	public Rigidbody2D projectilePrefab;
 	public GameObject cTTProjectile;
 	public Transform projectileSpawn;
-	float timer = 0.15f;
+	float timer = 0.5f;
 
 	void Update () 
 	{

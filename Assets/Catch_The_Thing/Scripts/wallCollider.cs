@@ -20,7 +20,7 @@ public class wallCollider : MonoBehaviour
 	{
 		if (other.gameObject.tag == "CTTProjectile") 
 		{
-			gameController.GetComponent<CTTGameController>().Defeat();
+			gameController.GetComponent<GameController>().FailGame();
 			Destroy (other.gameObject);
 		}
 	}

@@ -21,7 +21,8 @@ public class ArcadeController : MonoBehaviour
 		gameControllerO = GameObject.FindGameObjectWithTag ("GameController");
 		playerO = GameObject.FindGameObjectWithTag("Player");
 		playerCam = Camera.main;
-
+		transform.RotateAround (transform.position, Vector3.up, Random.Range(0f, 360f));
+		arcadeCam.transform.rotation = Quaternion.identity;
 	}
 
 	// Update is called once per frame

@@ -11,9 +11,24 @@ public class MainMenuController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.F))
-		{
+		if (Input.GetKeyDown (KeyCode.F)) {
 			SceneManager.LoadScene ("Overworld");
 		}
 	}
+
+		public void ToMainMenu()
+		{
+		SceneManager.LoadScene ("MainMenu");
+		}
+
+	public void Controls()
+	{
+		SceneManager.LoadScene ("Controls");
+	}
+	public void Credits()
+	{
+		SceneManager.LoadScene ("Credits");
+	}
+
+
 }

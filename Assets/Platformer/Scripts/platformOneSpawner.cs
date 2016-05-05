@@ -19,7 +19,7 @@ public class platformOneSpawner : MonoBehaviour
 	void SpawnPlatform()
 	{
 		float spawnPointX = Random.Range (-6f, -4f);
-		float spawnPointY = Random.Range (-4f, -3.5f);
+		float spawnPointY = Random.Range (-3.5f, -3f);
 		Vector3 spawnPosition = new Vector3 (spawnPointX, spawnPointY, 0);
 		Instantiate(platformOne, spawnPosition, Quaternion.identity);
 	}

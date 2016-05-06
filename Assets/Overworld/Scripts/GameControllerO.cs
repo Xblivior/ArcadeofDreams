@@ -18,9 +18,8 @@ public class GameControllerO : MonoBehaviour
 	public int currentScore;
 
 	public Image realityPic1;
-	public Image realityPic2;
-	public Image realityPic3;
-	public Image realityPic4;
+
+	public Animator realityPicAnim;
 
 	public Sprite[] realityImage; 
 
@@ -106,7 +105,31 @@ public class GameControllerO : MonoBehaviour
 		{
 			Sprite randomPic = realityImage[Random.Range(0, realityImage.Length)];
 			realityPic1.GetComponent<Image>().sprite = randomPic;
-			realityPic1.enabled = true;
+			realityPicAnim.SetTrigger("PlayFade1");
+
+		}
+
+		if (currentHappiness > 50f && currentHappiness - sadness <= 50f)
+		{
+			Sprite randomPic = realityImage[Random.Range(0, realityImage.Length)];
+			realityPic1.GetComponent<Image>().sprite = randomPic;
+			realityPicAnim.SetTrigger("PlayFade2");
+
+		}
+
+		if (currentHappiness > 25f && currentHappiness - sadness <= 25f)
+		{
+			Sprite randomPic = realityImage[Random.Range(0, realityImage.Length)];
+			realityPic1.GetComponent<Image>().sprite = randomPic;
+			realityPicAnim.SetTrigger("PlayFade3");
+
+		}
+
+		if (currentHappiness > 15f && currentHappiness - sadness <= 15f)
+		{
+			Sprite randomPic = realityImage[Random.Range(0, realityImage.Length)];
+			realityPic1.GetComponent<Image>().sprite = randomPic;
+			realityPicAnim.SetTrigger("PlayFade4");
 
 		}
 

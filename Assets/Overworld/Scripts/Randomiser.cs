@@ -11,10 +11,27 @@ public class Randomiser : MonoBehaviour
 	public GameObject goal;
 	public GameObject player;
 
+	//PLatform GameObjects
+	public GameObject platOne;
+	public GameObject platTwo;
+	public GameObject platThree; 
+
 	//spawn point variables
 	public GameObject leftBorder;
 	public GameObject rightBorder;
 	public GameObject topBorder;
+
+	//spawn variable for platform one
+	public GameObject platOneOne;
+	public GameObject platOneTwo;
+
+	//spawn variable for platform three
+	public GameObject platTwoOne;
+	public GameObject platTwoTwo;
+
+	//spawn variable for platform three
+	public GameObject platThreeOne;
+	public GameObject platThreeTwo;
 
 	//DTTRandomiser Variables
 	public GameObject[] dTTEnemy; 
@@ -25,8 +42,12 @@ public class Randomiser : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		RandomPlayer();
-		if (gameObject.tag != "DTTCamera")
+		if (gameObject.tag != "PlatCamera")
+		{
+			RandomPlayer();
+		}
+
+		if (gameObject.tag != "DTTCamera" && gameObject.tag != "PlatCamera")
 		{
 			RandomGoal();
 		}
@@ -34,6 +55,11 @@ public class Randomiser : MonoBehaviour
 		if (gameObject.tag == "DTTCamera")
 		{
 			StartCoroutine(RandomEnemyDTT());
+		}
+
+		if (gameObject.tag == "PlatCamera")
+		{
+			RandomPlat();
 		}
 	}
 	
@@ -65,6 +91,14 @@ public class Randomiser : MonoBehaviour
 
 		// apply random material
 		//goal.GetComponent<SpriteRenderer>().sprite = randomMatG;
+	}
+
+	void RandomPlat()
+	{
+		platOne.transform.position = new Vector3(Mathf.Lerp(platOneOne.transform.position.x, platOneTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platOneOne.transform.position.y, platOneTwo.transform.position.y, Random.Range(0f, 1f)), platOne.transform.position.z);
+		platTwo.transform.position = new Vector3(Mathf.Lerp(platTwoOne.transform.position.x, platTwoTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platTwoOne.transform.position.y, platTwoTwo.transform.position.y, Random.Range(0f, 1f)), platTwo.transform.position.z);
+		platThree.transform.position = new Vector3(Mathf.Lerp(platThreeOne.transform.position.x, platThreeTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platThreeOne.transform.position.y, platThreeTwo.transform.position.y, Random.Range(0f, 1f)), platThree.transform.position.z);
+
 	}
 
 	IEnumerator RandomEnemyDTT()

@@ -20,7 +20,7 @@ public class GoalController : MonoBehaviour
 			timer = 0;
 		}
 
-		if (timer <= 0)
+		if (timer <= 0 && gameController.tag == "CTTCamera")
 		{
 			//Spawns the GameObject once the timer is 0. Once the Gameobject is spawned the timer resets to 5.
 			Instantiate(cTTProjectile, projectileSpawn.transform.position, Quaternion.identity);

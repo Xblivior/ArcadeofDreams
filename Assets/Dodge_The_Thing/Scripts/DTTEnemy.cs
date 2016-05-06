@@ -22,7 +22,6 @@ public class DTTEnemy : MonoBehaviour {
 	{
 		if (other.tag == "DTTWall")
 		{
-			print("hit");
 			Destroy(this.gameObject); 
 		}
 	}

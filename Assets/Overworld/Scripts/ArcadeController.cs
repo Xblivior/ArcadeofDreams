@@ -5,7 +5,6 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class ArcadeController : MonoBehaviour 
 {
-	public string[] nextLevel;
 	public GameController gameController;
 	public GameObject gameControllerO;
 	public GameObject playerO;

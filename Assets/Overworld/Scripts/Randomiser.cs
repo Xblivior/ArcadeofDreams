@@ -7,6 +7,8 @@ public class Randomiser : MonoBehaviour
 	public Sprite[] goalMat;
 	public Sprite[] playerMat; 
 
+	public GameObject[] goalMatGO; 
+
 	//Playter and Gaol GameObjects
 	public GameObject goal;
 	public GameObject player;
@@ -88,9 +90,11 @@ public class Randomiser : MonoBehaviour
 
 		//get random material
 		//Sprite randomMatG = goalMat[Random.Range(0, goalMat.Length)]; 
+		GameObject randomMatGo = goalMatGO[Random.Range(0, goalMat.Length)];
 
 		// apply random material
 		//goal.GetComponent<SpriteRenderer>().sprite = randomMatG;
+		Instantiate (randomMatGo, goal.transform.position, goal.transform.rotation);
 	}
 
 	void RandomPlat()

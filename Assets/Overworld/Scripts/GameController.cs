@@ -86,7 +86,15 @@ public class GameController : MonoBehaviour
 		gameObject.GetComponent<Randomiser>().enabled = true;
 
 		//enable minigame player controller
-		arcadePlayer.GetComponent<PlayerController>().enabled = true;
+		if (gameObject.tag != "PlatCamera")
+		{
+			arcadePlayer.GetComponent<PlayerController>().enabled = true;
+		}
+
+		else 
+		{
+			arcadePlayer.GetComponent<PlayerController>().enabled = true;
+		}
 
 		//start timer
 		activeGame = true;

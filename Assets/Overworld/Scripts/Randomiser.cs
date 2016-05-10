@@ -89,12 +89,10 @@ public class Randomiser : MonoBehaviour
 		goal.transform.position = new Vector3(Mathf.Lerp(leftBorder.transform.position.x, rightBorder.transform.position.x, Random.Range(0f, 1f)), goal.transform.position.y, goal.transform.position.z);
 
 		//get random material
-		//Sprite randomMatG = goalMat[Random.Range(0, goalMat.Length)]; 
-		GameObject randomMatGo = goalMatGO[Random.Range(0, goalMat.Length)];
+		Sprite randomMatG = goalMat[Random.Range(0, goalMat.Length)]; 
 
 		// apply random material
-		//goal.GetComponent<SpriteRenderer>().sprite = randomMatG;
-		Instantiate (randomMatGo, goal.transform.position, goal.transform.rotation);
+		goal.GetComponent<SpriteRenderer>().sprite = randomMatG;
 	}
 
 	void RandomPlat()

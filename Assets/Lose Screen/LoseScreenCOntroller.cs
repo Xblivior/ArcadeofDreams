@@ -14,9 +14,11 @@ public class LoseScreenCOntroller : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-//		if(Input.GetKeyDown(KeyCode.F))
-//		{
-//			SceneManager.LoadScene ("MainMenu");
-//		}
+		
+	}
+
+	public void MainMenu()
+	{
+		SceneManager.LoadScene ("MainMenu");
 	}
 }

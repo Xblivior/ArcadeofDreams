@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		PlayerPrefs.SetInt ("RecentScore", 343);
+		PlayerPrefs.SetInt ("RecentScore", 150);
 		LoadScores();
 
 		if (skipEntry == true)
@@ -49,6 +49,7 @@ public class ScoreManager : MonoBehaviour
 				Debug.Log (myHighScores[i].playerName + myHighScores[i].playerScore);
 			}
 		}
+
 	}
 
 	void SaveScore()
@@ -67,31 +68,33 @@ public class ScoreManager : MonoBehaviour
 
 	public void SubmitScore()
 	{
-		if (myHighScores.Count == 0)
+		bool wasAdded = false;
+		//for i if i is < myHighScores
+		for (int i = 0; i < myHighScores.Count; i++)
+		{
+			if (PlayerPrefs.GetInt("RecentScore") > myHighScores[i].playerScore)
+			{
+				HighScoreEntry newScore = new HighScoreEntry (nameField.text, PlayerPrefs.GetInt ("RecentScore"));
+				myHighScores.Insert (i, newScore);
+				wasAdded = true;
+
+				break;
+			}
+
+		}
+	
+		if (!wasAdded)
 		{
 			HighScoreEntry newScore = new HighScoreEntry (nameField.text, PlayerPrefs.GetInt ("RecentScore"));
 			myHighScores.Add (newScore);
 		}
 
-		else
+		if (myHighScores.Count > 10)
 		{
-			//for i if i is < myHighScores
-			for (int i = 0; i < myHighScores.Count; i++)
-			{
-				if (PlayerPrefs.GetInt("RecentScore") > myHighScores[i].playerScore)
-				{
-					HighScoreEntry newScore = new HighScoreEntry (nameField.text, PlayerPrefs.GetInt ("RecentScore"));
-					myHighScores.Insert (i, newScore);
-					if (myHighScores.Count > 10)
-					{
-						myHighScores.RemoveAt (10);
-					}
-					break;
-				}
-
-			}
+			myHighScores.RemoveAt (10);
 		}
 
+		SaveScore (); 
 		ShowScores ();
 
 	}

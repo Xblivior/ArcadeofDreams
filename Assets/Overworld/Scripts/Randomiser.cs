@@ -7,8 +7,6 @@ public class Randomiser : MonoBehaviour
 	public Sprite[] goalMat;
 	public Sprite[] playerMat; 
 
-	public GameObject[] goalMatGO; 
-
 	//Playter and Gaol GameObjects
 	public GameObject goal;
 	public GameObject player;

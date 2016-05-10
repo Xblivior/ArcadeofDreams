@@ -144,6 +144,7 @@ public class GameControllerO : MonoBehaviour
 
 	public void GameOver()
 	{
+		PlayerPrefs.SetInt ("RecentScore", currentScore);
 		SceneManager.LoadScene ("LoseScreen");
 	}
 }

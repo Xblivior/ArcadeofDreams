@@ -73,6 +73,11 @@ public class platformPlayerMovement : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 			{
 				jump = true;
+
+				if (transform.parent.tag =="PlatTwo")
+				{
+					this.transform.SetParent (transform.parent.parent);
+				}
 			}
 	}
 
@@ -114,10 +119,23 @@ public class platformPlayerMovement : MonoBehaviour
 	{
 		if (other.gameObject.tag == "PlatformerThirdPlat")
 		{
-			Debug.Log("something");
 			gameController.GetComponent<GameController>().Victory(); 
 		}
 
+		if (other.gameObject.tag == "PlatformerFallingTrigger")
+		{
+			Debug.Log("Dead");
+			gameController.GetComponent<GameController> ().FailGame ();
+		}
+
+	}
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.tag =="PlatTwo")
+		{
+			this.transform.SetParent (other.transform);
+		}
 	}
 }
 

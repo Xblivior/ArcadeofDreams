@@ -95,9 +95,11 @@ public class Randomiser : MonoBehaviour
 
 	void RandomPlat()
 	{
-		platOne.transform.position = new Vector3(Mathf.Lerp(platOneOne.transform.position.x, platOneTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platOneOne.transform.position.y, platOneTwo.transform.position.y, Random.Range(0f, 1f)), platOne.transform.position.z);
-		platTwo.transform.position = new Vector3(Mathf.Lerp(platTwoOne.transform.position.x, platTwoTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platTwoOne.transform.position.y, platTwoTwo.transform.position.y, Random.Range(0f, 1f)), platTwo.transform.position.z);
-		platThree.transform.position = new Vector3(Mathf.Lerp(platThreeOne.transform.position.x, platThreeTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platThreeOne.transform.position.y, platThreeTwo.transform.position.y, Random.Range(0f, 1f)), platThree.transform.position.z);
+//		platOne.transform.position = new Vector3(Mathf.Lerp(platOneOne.transform.position.x, platOneTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platOneOne.transform.position.y, platOneTwo.transform.position.y, Random.Range(0f, 1f)), platOne.transform.position.z);
+//		platTwo.transform.position = new Vector3(Mathf.Lerp(platTwoOne.transform.position.x, platTwoTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platTwoOne.transform.position.y, platTwoTwo.transform.position.y, Random.Range(0f, 1f)), platTwo.transform.position.z);
+//		platThree.transform.position = new Vector3(Mathf.Lerp(platThreeOne.transform.position.x, platThreeTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platThreeOne.transform.position.y, platThreeTwo.transform.position.y, Random.Range(0f, 1f)), platThree.transform.position.z);
+
+
 
 	}
 

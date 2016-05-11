@@ -21,20 +21,9 @@ public class Randomiser : MonoBehaviour
 	public GameObject rightBorder;
 	public GameObject topBorder;
 
-	//spawn variable for platform one
-	public GameObject platOneOne;
-	public GameObject platOneTwo;
-
-	//spawn variable for platform three
-	public GameObject platTwoOne;
-	public GameObject platTwoTwo;
-
-	//spawn variable for platform three
-	public GameObject platThreeOne;
-	public GameObject platThreeTwo;
-
 	//DTTRandomiser Variables
-	public GameObject[] dTTEnemy; 
+	public GameObject dTTEnemy; 
+	public Sprite[] dTTEnemyPossible;
 	public int enemyCount;
 	public int hazardCount;
 	public float spawnWait;
@@ -57,10 +46,6 @@ public class Randomiser : MonoBehaviour
 			StartCoroutine(RandomEnemyDTT());
 		}
 
-		if (gameObject.tag == "PlatCamera")
-		{
-			RandomPlat();
-		}
 	}
 	
 	// Update is called once per frame
@@ -93,26 +78,19 @@ public class Randomiser : MonoBehaviour
 		goal.GetComponent<SpriteRenderer>().sprite = randomMatG;
 	}
 
-	void RandomPlat()
-	{
-//		platOne.transform.position = new Vector3(Mathf.Lerp(platOneOne.transform.position.x, platOneTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platOneOne.transform.position.y, platOneTwo.transform.position.y, Random.Range(0f, 1f)), platOne.transform.position.z);
-//		platTwo.transform.position = new Vector3(Mathf.Lerp(platTwoOne.transform.position.x, platTwoTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platTwoOne.transform.position.y, platTwoTwo.transform.position.y, Random.Range(0f, 1f)), platTwo.transform.position.z);
-//		platThree.transform.position = new Vector3(Mathf.Lerp(platThreeOne.transform.position.x, platThreeTwo.transform.position.x, Random.Range(0f, 1f)), Mathf.Lerp(platThreeOne.transform.position.y, platThreeTwo.transform.position.y, Random.Range(0f, 1f)), platThree.transform.position.z);
-
-
-
-	}
-
 	IEnumerator RandomEnemyDTT()
 	{
 		for (int i = 0; i < hazardCount; i++)
 		{	
+			Sprite dTTEnemyMat = dTTEnemyPossible [Random.Range (0, dTTEnemyPossible.Length)];
+			dTTEnemy.GetComponent<SpriteRenderer> ().sprite = dTTEnemyMat;
+
 			//get new spawnpoints
 			Vector3 dTTEnemyT = topBorder.transform.position; 
 			dTTEnemyT = new Vector3(Random.Range(leftBorder.transform.position.x, rightBorder.transform.position.x),dTTEnemyT.y,dTTEnemyT.z);
 		
 			//spawn enemies
-			Instantiate(dTTEnemy[Random.Range(0, 2)], dTTEnemyT,Quaternion.identity);
+			Instantiate(dTTEnemy, dTTEnemyT,Quaternion.identity);
 			yield return new WaitForSeconds(spawnWait);
 		}
 		//increase the amount of enemies spawned each time

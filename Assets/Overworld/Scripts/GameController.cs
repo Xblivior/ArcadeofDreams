@@ -76,7 +76,16 @@ public class GameController : MonoBehaviour
 		arcade.GetComponent<ArcadeController>().Lose();
 
 		//disable minigame player controller
-		arcadePlayer.GetComponent<PlayerController>().enabled = false;
+		if (gameObject.tag != "PlatCamera")
+		{
+			arcadePlayer.GetComponent<PlayerController>().enabled = false;
+		}
+
+		else 
+		{
+			arcadePlayer.GetComponent<platformPlayerMovement>().enabled = false;
+		}
+
 	
 	}
 
@@ -93,7 +102,7 @@ public class GameController : MonoBehaviour
 
 		else 
 		{
-			arcadePlayer.GetComponent<PlayerController>().enabled = true;
+			arcadePlayer.GetComponent<platformPlayerMovement>().enabled = true;
 		}
 
 		//start timer

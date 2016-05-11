@@ -5,6 +5,8 @@ public class platformPlayerMovement : MonoBehaviour
 {
 	private Rigidbody2D myRigidbody;
 
+	public GameObject gameController; 
+
 	[SerializeField]
 	private float moveSpeed;
 
@@ -32,7 +34,11 @@ public class platformPlayerMovement : MonoBehaviour
 		facingRight = true;
 		myRigidbody = GetComponent<Rigidbody2D>();
 	}
-	
+
+	void Update()
+	{
+		HandleInput();
+	}
 
 	void FixedUpdate () 
 	{
@@ -45,8 +51,6 @@ public class platformPlayerMovement : MonoBehaviour
 		Debug.Log(horizontal);
 
 		HandleMovement(horizontal);
-
-		HandleInput();
 
 		Flip(horizontal);
 	}
@@ -104,6 +108,16 @@ public class platformPlayerMovement : MonoBehaviour
 			}
 		}
 		return false;
+	}
+
+	void OnTriggerEnter2D (Collider2D other)
+	{
+		if (other.gameObject.tag == "PlatformerThirdPlat")
+		{
+			Debug.Log("something");
+			gameController.GetComponent<GameController>().Victory(); 
+		}
+
 	}
 }
 

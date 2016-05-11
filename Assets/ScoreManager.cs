@@ -19,7 +19,6 @@ public class ScoreManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		//PlayerPrefs.SetInt ("RecentScore", 150);
 		LoadScores();
 
 		if (skipEntry == true)
@@ -111,3 +110,6 @@ public class ScoreManager : MonoBehaviour
 		}
 	}
 }
+
+
+//Jacob Kreck, Hadyn Lander, Xblivior

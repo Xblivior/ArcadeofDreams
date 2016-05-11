@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 	// throwing variables
 	public GameObject thrown;
 	public Transform throwSpawn;
-
+	public Sprite[] possibleThrown;
 	public GameObject gameController;
 
 	//Variables for player movement
@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour
 			//presses space and hasSHot is false is true
 			if (Input.GetKeyDown(KeyCode.Space) && hasShot == false)
 			{
-
+				Sprite thrownMat = possibleThrown [Random.Range (0, possibleThrown.Length)];
+				thrown.GetComponent<SpriteRenderer> ().sprite = thrownMat;
 				//shoot
 				Instantiate(thrown, throwSpawn.transform.position, throwSpawn.transform.rotation);
 

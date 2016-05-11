@@ -38,6 +38,16 @@ public class MainMenuController : MonoBehaviour
 		SceneManager.LoadScene ("HighscoreScene");
 	}
 
+	public void Play()
+	{
+		SceneManager.LoadScene ("Overworld");
+	}
+
+	public void Quit()
+	{
+		Application.Quit ();
+	}
+
 
 }
 

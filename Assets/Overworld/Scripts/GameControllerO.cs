@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameControllerO : MonoBehaviour 
 {
@@ -22,6 +23,9 @@ public class GameControllerO : MonoBehaviour
 	public Animator realityPicAnim;
 
 	public Sprite[] realityImage; 
+
+	public GameObject playerO;
+
 
 	int highscore;
 	// Use this for initialization
@@ -145,6 +149,7 @@ public class GameControllerO : MonoBehaviour
 	public void GameOver()
 	{
 		PlayerPrefs.SetInt ("RecentScore", currentScore);
+		playerO.GetComponent<FirstPersonController>().enabled = false;
 		SceneManager.LoadScene ("LoseScreen");
 	}
 }

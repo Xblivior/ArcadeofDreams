@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
 			{
 				Sprite thrownMat = possibleThrown [Random.Range (0, possibleThrown.Length)];
 				thrown.GetComponent<SpriteRenderer> ().sprite = thrownMat;
+
 				//shoot
 				Instantiate(thrown, throwSpawn.transform.position, throwSpawn.transform.rotation);
 

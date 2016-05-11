@@ -2,24 +2,27 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour {
+public class MainMenuController : MonoBehaviour 
+{
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		if (Input.GetKeyDown (KeyCode.F)) {
 			SceneManager.LoadScene ("Overworld");
 		}
 	}
 
-		public void ToMainMenu()
-		{
+	public void ToMainMenu()
+	{
 		SceneManager.LoadScene ("MainMenu");
-		}
+	}
 
 	public void Controls()
 	{
@@ -30,5 +33,13 @@ public class MainMenuController : MonoBehaviour {
 		SceneManager.LoadScene ("Credits");
 	}
 
+	public void HighscoresScene()
+	{
+		SceneManager.LoadScene ("HighscoreScene");
+	}
+
 
 }
+
+
+//Kotis

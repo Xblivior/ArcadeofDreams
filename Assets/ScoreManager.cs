@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		PlayerPrefs.SetInt ("RecentScore", 150);
+		//PlayerPrefs.SetInt ("RecentScore", 150);
 		LoadScores();
 
 		if (skipEntry == true)

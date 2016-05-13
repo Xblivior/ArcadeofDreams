@@ -67,17 +67,19 @@ public class GameControllerO : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.P))
 		{
-			print ("hit");
-			pauseText.enabled = true;
-			isPaused = true;
-			Time.timeScale = 0.0f;
-		}
+			if (isPaused == true)
+			{
+				Time.timeScale = 1.0f;
+				pauseText.enabled = false;
+				isPaused = false;
+			}
 
-		if (isPaused == true && Input.GetKeyDown(KeyCode.P))
-		{
-			Time.timeScale = 1.0f;
-			pauseText.enabled = false;
-			isPaused = false;
+			else
+			{
+				pauseText.enabled = true;
+				isPaused = true;
+				Time.timeScale = 0.0f;
+			}
 		}
 
 		if (isPaused == true && Input.GetKeyDown(KeyCode.M))
@@ -86,11 +88,6 @@ public class GameControllerO : MonoBehaviour
 			isPaused = false;
 			SceneManager.LoadScene ("MainMenu");
 		}
-
-
-
-
-
 
 	}
 

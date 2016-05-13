@@ -43,6 +43,11 @@ public class MainMenuController : MonoBehaviour
 		SceneManager.LoadScene ("Overworld");
 	}
 
+	public void References()
+	{
+		SceneManager.LoadScene ("References");
+	}
+
 	public void Quit()
 	{
 		Application.Quit ();

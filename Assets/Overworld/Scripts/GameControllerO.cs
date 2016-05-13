@@ -18,6 +18,10 @@ public class GameControllerO : MonoBehaviour
 	public int score;
 	public int currentScore;
 
+	public Text pauseText;
+	bool isPaused = false;
+
+
 	public Image realityPic1;
 
 	public Animator realityPicAnim;
@@ -41,6 +45,8 @@ public class GameControllerO : MonoBehaviour
 		happinessBar.wholeNumbers = true;
 		currentScore = 0;
 
+		pauseText.enabled = false;
+
 
 	}
 	
@@ -51,15 +57,37 @@ public class GameControllerO : MonoBehaviour
 		scoreTex.text = "Score: " + currentScore;
 		//highScoreTex.text = PlayerPrefs.GetInt ("HighScore");
 
+		//if happiness reaches 0
 		if (currentHappiness <= 0f)
 		{
+			//gameover
 			GameOver();
-			/*playerprefs
-			if (currentScore > PlayerPrefs.GetInt ("Highscore")) 
-			{
-				PlayerPrefs.SetInt ("Highscore");
-			}*/
+		
 		}
+
+		if (Input.GetKeyDown(KeyCode.P))
+		{
+			print ("hit");
+			pauseText.enabled = true;
+			isPaused = true;
+			Time.timeScale = 0.0f;
+		}
+
+		if (isPaused == true && Input.GetKeyDown(KeyCode.P))
+		{
+			Time.timeScale = 1.0f;
+			pauseText.enabled = false;
+			isPaused = false;
+		}
+
+		if (isPaused == true && Input.GetKeyDown(KeyCode.M))
+		{
+			Time.timeScale = 1.0f;
+			isPaused = false;
+			SceneManager.LoadScene ("MainMenu");
+		}
+
+
 
 
 
